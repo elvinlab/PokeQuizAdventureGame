@@ -3,10 +3,15 @@
     <img
       v-if="!showPokemon"
       :src="imgSrc"
-      class="brightness-0 dark:invert h-48 select-none"
+      class="brightness-0 dark:invert w-48 h-48 select-none"
       alt="pokemon"
     />
-    <img v-if="showPokemon" :src="imgSrc" class="fade-in" alt="pokemon" />
+    <img
+      v-if="showPokemon"
+      :src="imgSrc"
+      class="fade-in w-60 h-60"
+      alt="pokemon"
+    />
   </div>
 </template>
 
