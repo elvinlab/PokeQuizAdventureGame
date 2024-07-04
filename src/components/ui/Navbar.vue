@@ -1,25 +1,32 @@
 <script>
-import ThemeSwitcher from "@/components/ThemeSwitcher.vue";
-import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
+import ThemeSwitcher from "@/components/control/ThemeSwitcher.vue";
+import LanguageSwitcher from "@/components/control/LanguageSwitcher.vue";
+import { Config } from "@/helpers/config.js";
+
 export default {
   components: {
     ThemeSwitcher,
     LanguageSwitcher,
   },
+  data() {
+    return {
+      Config: Config,
+    };
+  },
 };
 </script>
 <template>
-  <nav class="bg-white border-gray-200 dark:bg-gray-900">
+  <nav class="backdrop-blur-xl bg-white/30 dark:bg-[#1d1d2c]">
     <div
-      class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto"
     >
       <router-link
         to="/"
         class="flex items-center space-x-3 rtl:space-x-reverse"
       >
-        <img src="@/assets/logo.svg" class="h-8" alt="Flowbite Logo" />
+        <img src="@/assets/logo.svg" class="h-8" alt="Poke Game Logo" />
         <span
-          class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+          class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
           >Poke Game</span
         >
       </router-link>
@@ -58,13 +65,13 @@ export default {
         id="navbar-menu"
       >
         <ul
-          class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          class="flex flex-col font-medium p-4 md:p-2 mt-4 border border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:border-gray-700"
         >
           <li>
             <button
               data-modal-target="static-modal"
               data-modal-toggle="static-modal"
-              class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               type="button"
             >
               {{ $t("instructionsTitle") }}
@@ -72,15 +79,17 @@ export default {
           </li>
           <li>
             <a
-              href="#"
-              class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              :href="Config.GITHUB_REPOSITORY"
+              target="_blank"
+              class="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >{{ $t("repository") }}</a
             >
           </li>
           <li>
             <a
-              href="#"
-              class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              :href="Config.WEBSITE_LINK"
+              target="_blank"
+              class="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >{{ $t("website") }}</a
             >
           </li>
