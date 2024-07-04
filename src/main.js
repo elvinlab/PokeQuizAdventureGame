@@ -3,6 +3,7 @@ import { createI18n } from "vue-i18n";
 import dictionary from "@/i18n/dictionary.js";
 import routes from "@/routes";
 import App from "@/App.vue";
+import "animate.css";
 
 import "./style.css";
 
