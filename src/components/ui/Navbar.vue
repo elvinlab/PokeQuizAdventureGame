@@ -26,7 +26,7 @@ export default {
       >
         <img src="@/assets/logo.svg" class="h-8" alt="Poke Game Logo" />
         <span
-          class="self-center text-xl font-semibold whitespace-nowrap text-red-800 dark:text-white"
+          class="self-center text-sm sm:text-xl font-semibold whitespace-nowrap text-red-800 dark:text-white"
           >Poke Game</span
         >
       </router-link>

@@ -1,17 +1,17 @@
 <template>
   <div
-    class="h-48 flex items-center justify-center mt-20 animate__animated animate__backInLeft"
+    class="h-48 flex items-center justify-center sm:mt-20 animate__animated animate__backInLeft"
   >
     <img
       v-if="!showPokemon"
       :src="imgSrc"
-      class="brightness-0 dark:invert w-48 h-48 select-none animate__animated animate__bounce animate__infinite infinite animate__delay-2s"
+      class="brightness-0 dark:invert w-24 h-24 sm:w-48 sm:h-48 select-none animate__animated animate__bounce animate__infinite infinite animate__delay-2s"
       alt="Pokemon"
     />
     <img
       v-if="showPokemon"
       :src="imgSrc"
-      class="w-60 h-60 animate__heartBeat"
+      class="w-24 h-24 sm:w-60 sm:h-60 animate__heartBeat"
       alt="Pokemon"
     />
   </div>
