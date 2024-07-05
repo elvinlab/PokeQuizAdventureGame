@@ -1,9 +1,9 @@
 <template>
-  <div class="max-w-1280 mx-auto p-8 pt-14 text-center">
+  <div class="max-w-1280 mx-auto p-5 sm:p-8 sm:pt-14 text-center">
     <Loading v-if="!currentPokemon" />
     <div v-else>
       <h1
-        class="text-4xl font-bold mb-4 text-red-800 dark:text-blue-200 animate__animated animate__pulse animate__infinite infinite"
+        class="text-xl sm:text-4xl font-bold mb-4 text-red-800 dark:text-blue-200 animate__animated animate__pulse animate__infinite infinite"
       >
         {{ $t("game.title") }} 👀
       </h1>
@@ -15,13 +15,13 @@
 
       <template v-if="showAnswer">
         <h2
-          class="rounded animate__animated animate__backInRight text-dark-800 dark:text-blue-200 text-xl font-bold mb-2 mt-4 bg-gray-100 dark:bg-gray-800 rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+          class="rounded animate__animated animate__backInRight text-dark-800 dark:text-blue-200 text-sm sm:text-xl font-bold mb-2 mt-4 bg-gray-100 dark:bg-gray-800 rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
         >
           {{ msg }}
         </h2>
         <button
           @click="newPokemonGame"
-          class="bg-red-800 hover:bg-red-600 text-white font-bold py-2 px-4 rounded animate__animated animate__backInUp animate__delay-1s"
+          class="bg-red-800 hover:bg-red-600 text-white font-bold sm:py-2 sm:px-4 px-2 rounded animate__animated animate__backInUp animate__delay-1s"
         >
           🎮 {{ $t("game.newGame") }} 🎲
         </button>
