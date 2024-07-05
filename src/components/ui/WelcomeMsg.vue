@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="showWelcome"
-    class="fixed inset-0 flex items-center justify-center bg-white p-4 shadow-lg z-50"
+    class="fixed overflow-y-auto inset-0 flex items-center justify-center bg-white p-4 shadow-lg z-50 animate__animated animate__backInDown animate__delay-2s"
   >
     <div class="text-center">
       <p class="text-red-800 text-3xl font-bold mb-2">
