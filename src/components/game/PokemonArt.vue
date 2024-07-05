@@ -5,7 +5,7 @@
     <img
       v-if="!showPokemon"
       :src="imgSrc"
-      class="brightness-0 dark:invert w-24 h-24 sm:w-48 sm:h-48 select-none animate__animated animate__bounce animate__infinite infinite animate__delay-2s"
+      class="brightness-0 dark:invert w-24 h-24 sm:w-48 sm:h-48 select-none pointer-events-none animate__animated animate__bounce animate__infinite infinite animate__delay-2s"
       alt="Pokemon"
     />
     <img
