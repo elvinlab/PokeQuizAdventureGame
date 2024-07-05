@@ -15,8 +15,8 @@ export default {
 
 <template>
   <WelcomeMsg />
+  <Navbar />
   <div class="animate__animated animate__zoomIn">
-    <Navbar />
     <Instructions />
     <PokeMain />
   </div>
