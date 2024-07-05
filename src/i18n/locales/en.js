@@ -15,5 +15,8 @@ export default {
   game: {
     loading: "Loading ⌛...",
     title: "Who is this Pokemon?",
+    newGame: "New Game",
+    correctAnswer: "Correct! It's",
+    wrongAnswer: "Wrong answer! The pokemon was",
   },
 };
