@@ -1,16 +1,18 @@
 <template>
-  <div class="h-48 flex items-center justify-center mt-10">
+  <div
+    class="h-48 flex items-center justify-center mt-20 animate__animated animate__backInLeft"
+  >
     <img
       v-if="!showPokemon"
       :src="imgSrc"
-      class="brightness-0 dark:invert w-48 h-48 select-none"
-      alt="pokemon"
+      class="brightness-0 dark:invert w-48 h-48 select-none animate__animated animate__bounce animate__infinite infinite animate__delay-2s"
+      alt="Pokemon"
     />
     <img
       v-if="showPokemon"
       :src="imgSrc"
-      class="fade-in w-60 h-60"
-      alt="pokemon"
+      class="w-60 h-60 animate__heartBeat"
+      alt="Pokemon"
     />
   </div>
 </template>

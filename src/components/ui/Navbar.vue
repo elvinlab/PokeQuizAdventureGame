@@ -26,7 +26,7 @@ export default {
       >
         <img src="@/assets/logo.svg" class="h-8" alt="Poke Game Logo" />
         <span
-          class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
+          class="self-center text-xl font-semibold whitespace-nowrap text-red-800 dark:text-white"
           >Poke Game</span
         >
       </router-link>
@@ -71,26 +71,28 @@ export default {
             <button
               data-modal-target="static-modal"
               data-modal-toggle="static-modal"
-              class="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-600 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               type="button"
             >
-              {{ $t("instructionsTitle") }}
+              🧾 {{ $t("instructionsTitle") }}
             </button>
           </li>
           <li>
             <a
               :href="Config.GITHUB_REPOSITORY"
               target="_blank"
-              class="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >{{ $t("repository") }}</a
+              class="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-600 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+            >
+              🛟{{ $t("repository") }}</a
             >
           </li>
           <li>
             <a
               :href="Config.WEBSITE_LINK"
               target="_blank"
-              class="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >{{ $t("website") }}</a
+              class="block text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-600 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+            >
+              🌎 {{ $t("website") }}</a
             >
           </li>
         </ul>
