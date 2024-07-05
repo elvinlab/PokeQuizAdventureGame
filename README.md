@@ -45,7 +45,15 @@ In this project, you can run the following scripts:
   pnpm build
   ```
 
-  This command builds the project for production.
+## Running Tests
+
+To run tests for this project, use the following command:
+
+```sh
+pnpm Test
+```
+
+This command builds the project for production.
 
 - **Preview:**
   ```sh
@@ -67,7 +75,12 @@ In this project, you can run the following scripts:
 ### Development
 
 - **[@vitejs/plugin-vue](https://vitejs.dev/):** Plugin to integrate Vue with Vite.
+- **[@vue/test-utils](https://vuejs.github.io/vue-test-utils/):** Utilities for testing Vue components.
+- **[@vue/vue3-jest](https://github.com/vuejs/vue-jest):** Jest integration for Vue 3.
 - **[autoprefixer](https://github.com/postcss/autoprefixer):** Plugin to parse CSS and add vendor prefixes using values from Can I Use.
+- **[babel-jest](https://babeljs.io/docs/en/babel-jest):** Jest transformer for JavaScript ES6+ syntax.
+- **[jest-environment-jsdom](https://jestjs.io/docs/configuration#testenvironment-string):** Jest environment that simulates a browser environment using jsdom.
+- **[jest](https://jestjs.io/):** JavaScript testing framework.
 - **[postcss](https://postcss.org/):** Tool to transform CSS with JavaScript plugins.
 - **[tailwindcss](https://tailwindcss.com/):** Utility-first CSS framework for quickly building custom designs.
 - **[vite](https://vitejs.dev/):** Fast build tool focused on the frontend.
