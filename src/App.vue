@@ -10,6 +10,7 @@ onMounted(() => {
 <template>
   <router-view></router-view>
 </template>
+
 <style>
 html,
 body,

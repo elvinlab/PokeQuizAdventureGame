@@ -11,6 +11,7 @@ const i18n = createI18n({
   locale:
     localStorage.getItem("selectedLag") ||
     (navigator.language.startsWith("es") ? "es" : "en"),
+  globalInjection: true,
   fallbackLocale: "en",
   messages: dictionary,
 });
