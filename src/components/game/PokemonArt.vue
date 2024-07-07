@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-48 flex items-center justify-center sm:mt-20 animate__animated animate__backInLeft"
+    class="h-48 flex items-center justify-center sm:mt-10 animate__animated animate__backInLeft"
   >
     <img
       v-if="!showPokemon"
