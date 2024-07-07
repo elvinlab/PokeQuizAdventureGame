@@ -1,9 +1,9 @@
 <template>
-  <div class="max-w-1280 mx-auto p-5 sm:p-8 sm:pt-14 text-center">
+  <div class="max-w-1280 mx-auto p-5 sm:p-8 sm:pt-8 text-center">
     <Loading v-if="!currentPokemon" />
     <div v-else>
       <h1
-        class="text-xl sm:text-4xl font-bold mb-4 text-red-800 dark:text-blue-200 animate__animated animate__pulse animate__infinite infinite"
+        class="text-xl sm:text-3xl font-bold mb-4 text-red-800 dark:text-blue-200 animate__animated animate__pulse animate__infinite infinite"
       >
         {{ $t("game.title") }} 👀
       </h1>

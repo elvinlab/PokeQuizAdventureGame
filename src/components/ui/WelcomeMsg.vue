@@ -13,11 +13,13 @@
       <p class="text-red-800 text-lg mb-4 italic">
         {{ `${$t("welcomeP2")}` }}
       </p>
-      <img
-        src="@/assets/welcome-img.webp"
-        class="mb-4 max-w-full rounded-lg border-gradient"
-        alt="Welcome Image"
-      />
+      <div class="flex justify-center">
+        <img
+          src="@/assets/welcome-img.webp"
+          class="mb-4 h-2/5 w-2/5 text-center rounded-lg"
+          alt="Welcome Image"
+        />
+      </div>
 
       <button
         @click="handleReady"
@@ -49,19 +51,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.welcome-enter-active,
-.welcome-leave-active {
-  transition: opacity 0.5s;
-}
-.welcome-enter,
-.welcome-leave-to {
-  opacity: 0;
-}
-
-.border-gradient {
-  border-image: linear-gradient(to right, #ff4a00, #ffcc00);
-  border-image-slice: 1;
-}
-</style>
