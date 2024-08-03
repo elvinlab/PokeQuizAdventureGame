@@ -29,15 +29,12 @@ jobs:
 
     - name: Get current version
       id: vars
-      run: echo ::set-output name=TAG::v$(date +'%Y%m%d%H%M%S')
+      run: echo "TAG=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
     - name: Create tag
-      run: git tag ${{ steps.vars.outputs.TAG }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Push tag
-      run: git push origin ${{ steps.vars.outputs.TAG }}
+      run: |
+        git tag $TAG
+        git push origin $TAG
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -45,6 +42,6 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: build.zip
-        tag_name: ${{ steps.vars.outputs.TAG }}
+        tag_name: ${{ env.TAG }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
