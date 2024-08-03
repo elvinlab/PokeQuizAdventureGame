@@ -3,7 +3,7 @@ name: Build and Upload
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   build:
@@ -27,9 +27,24 @@ jobs:
     - name: Create .zip of build directory
       run: zip -r build.zip dist
 
+    - name: Get current version
+      id: vars
+      run: echo ::set-output name=TAG::v$(date +'%Y%m%d%H%M%S')
+
+    - name: Create tag
+      run: git tag ${{ steps.vars.outputs.TAG }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Push tag
+      run: git push origin ${{ steps.vars.outputs.TAG }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Upload build.zip to GitHub Releases
       uses: softprops/action-gh-release@v1
       with:
         files: build.zip
+        tag_name: ${{ steps.vars.outputs.TAG }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
