@@ -44,7 +44,7 @@ jobs:
 
     - name: Get current version #creamos una variable de entorno que haga referencia a este repo y guardamos el nombre
       id: current_version
-      run: echo "TAG=build_date$(date +'%Y_%m_%d')_v${{ steps.get_release_count.outputs.totalReleases }}" >> $GITHUB_ENV
+      run: echo "TAG=Build_Date_$(date +'%Y-%m-%d')_V${{ steps.get_release_count.outputs.totalReleases }}" >> $GITHUB_ENV
 
     - name: Create tag #creamos el tag con el nombre dado en el paso anterio
       run: |
