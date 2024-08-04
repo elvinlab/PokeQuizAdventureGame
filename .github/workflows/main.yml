@@ -27,9 +27,24 @@ jobs:
     - name: Create .zip of dist directory 
       run: zip -r dist.zip dist #comprimimos la carpeta dist en un archivo zip
 
+    - name: Get total number of releases
+      id: get_release_count
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const releases = await github.rest.repos.listReleases({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+          });
+          const totalReleases = releases.data.length + 1;
+          console.log(`Total releases: ${totalReleases}`);
+          core.setOutput('totalReleases', totalReleases);
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Get current version
-      id: current_version #creamos una variable donde guardaremos la version
-      run: echo "TAG=$(date +build_%Y_%m_%d)" >> $GITHUB_ENV
+      id: current_version
+      run: echo "TAG=build_$(date +'%Y_%m_%d')_${{ steps.get_release_count.outputs.totalReleases }}" >> $GITHUB_ENV
 
     - name: Create tag #creamos el tag con el nombre dado en el paso anterio
       run: |
@@ -45,3 +60,5 @@ jobs:
         tag_name: ${{ env.TAG }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        
