@@ -64,13 +64,13 @@ jobs:
     - name: Send email notification
       uses: dawidd6/action-send-mail@v3
       with:
-        server_address: smtp.gmail.com
+        server_address: smtp.gmail.com #usar gmail
         server_port: 465
-        username: ${{ secrets.GMAIL_USERNAME }}
-        password: ${{ secrets.GMAIL_APP_PASSWORD }}
-        subject: Dist.zip is ready
+        username: ${{ secrets.GMAIL_USERNAME }} #correo guardado en variables secrets
+        password: ${{ secrets.GMAIL_APP_PASSWORD }} #contraseña legacy de gmail guardada en variables secrets
+        subject: Dist.zip for ${{ env.TAG }} on ${{ date +'%Y-%m-%d' }} is ready
         body: |
           The dist.zip file is now available for download at the following link:
           https://github.com/${{ github.repository }}/releases/download/${{ env.TAG }}/dist.zip
-        to: dev@elvinlab.com
+        to: dev@elvinlab.com #agregar mas mail si se requiere
         from: ${{ secrets.GMAIL_USERNAME }}
