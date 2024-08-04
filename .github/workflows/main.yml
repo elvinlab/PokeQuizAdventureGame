@@ -1,47 +1,47 @@
-name: Build and Upload
+name: Build and Upload #Nombre del workflow
 
 on:
   push:
     branches:
-      - main
+      - main #cuando se detectan cambios se dispara el action
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest #corremos el proyecto sobre linux
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - name: Checkout repository #Nos movemos al repo
+      uses: actions/checkout@v2 #usamos la ultima version de actions
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
+    - name: Set up Node.js  #instalamos node
+      uses: actions/setup-node@v2 #Usamos el action oficial de node 
       with:
-        node-version: '16'
+        node-version: '16' #instalamos la ultima version
 
-    - name: Install dependencies
-      run: npm install
+    - name: Install dependencies #instalamos todas las dependencias
+      run: npm install 
 
-    - name: Build project
+    - name: Build project #Construimos el proyecto
       run: npm run build
 
-    - name: Create .zip of build directory
-      run: zip -r build.zip dist
+    - name: Create .zip of dist directory 
+      run: zip -r dist.zip dist #comprimimos la carpeta dist en un archivo zip
 
     - name: Get current version
-      id: vars
-      run: echo "TAG=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+      id: current_version #creamos una variable donde guardaremos la version
+      run: echo "TAG=$(date +build_%Y_%m_%d)" >> $GITHUB_ENV
 
-    - name: Create tag
+    - name: Create tag #creamos el tag con el nombre dado en el paso anterio
       run: |
-        git tag $TAG
+        git tag $TAG 
         git push origin $TAG
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Upload build.zip to GitHub Releases
+    - name: Upload dist.zip to GitHub Releases
       uses: softprops/action-gh-release@v1
       with:
-        files: build.zip
+        files: dist.zip
         tag_name: ${{ env.TAG }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
