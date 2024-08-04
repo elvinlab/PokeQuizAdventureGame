@@ -44,7 +44,7 @@ jobs:
 
     - name: Get current version #creamos una variable de entorno temp que haga referencia a este repo y guardamos el nombre
       id: current_version
-      run: echo "TAG=Build_Date_$(date +'%Y-%m-%d')_V${{ steps.get_release_count.outputs.totalReleases }}" >> $GITHUB_ENV
+      run: echo "TAG=Build_$(date +'%Y-%m-%d')_V${{ steps.get_release_count.outputs.totalReleases }}" >> $GITHUB_ENV
 
     - name: Create tag #creamos el tag con el nombre dado en el paso anterio
       run: |
@@ -63,7 +63,7 @@ jobs:
 
     - name: Set up email subject #definir el asunto
       id: email_subject
-      run: echo "EMAIL_SUBJECT=Dist.zip for ${{ env.TAG }} on $(date +'%Y-%m-%d') is ready" >> $GITHUB_ENV
+      run: echo "EMAIL_SUBJECT=Dist.zip for ${{ env.TAG }} is ready" >> $GITHUB_ENV
 
     - name: Send email notification
       uses: dawidd6/action-send-mail@v3
