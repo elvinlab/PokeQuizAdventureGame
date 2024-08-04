@@ -3,7 +3,7 @@ name: Build and Upload #Nombre del workflow
 on:
   push:
     branches:
-      - main #cuando se detectan cambios se dispara el action
+      - main #cuando se detectan cambios (commit, merge ) en la rama main el workflow se dispara el action
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
       run: npm run build
 
     - name: Create .zip of dist directory 
-      run: zip -r dist.zip dist #comprimimos la carpeta dist en un archivo zip
+      run: zip -r dist.zip dist #comprimimos la carpeta dist en un archivo .zip
 
     - name: Get total number of releases #con este paso obtenemos el total releases y le sumamos +1 para que los tag se diferencien haciendo alusión a versiones
       id: get_release_count
@@ -42,7 +42,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Get current version #creamos una variable de entorno que haga referencia a este repo y guardamos el nombre
+    - name: Get current version #creamos una variable de entorno temp que haga referencia a este repo y guardamos el nombre
       id: current_version
       run: echo "TAG=Build_Date_$(date +'%Y-%m-%d')_V${{ steps.get_release_count.outputs.totalReleases }}" >> $GITHUB_ENV
 
@@ -61,4 +61,17 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-        
+    - name: Send email notification
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 587
+        username: ${{ secrets.GMAIL_USERNAME }}
+        password: ${{ secrets.GMAIL_APP_PASSWORD }}
+        subject: Dist.zip is ready
+        body: |
+          The dist.zip file is now available for download at the following link:
+          https://github.com/${{ github.repository }}/releases/download/${{ env.TAG }}/dist.zip
+        to: dev@elvinlab.com
+        from: ${{ secrets.GMAIL_USERNAME }}
+        secure: true
