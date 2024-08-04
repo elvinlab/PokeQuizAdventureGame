@@ -61,10 +61,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up email subject #definir el asunto
+    - name: Set up email subject #definir el asunto
       id: email_subject
       run: echo "EMAIL_SUBJECT=Dist.zip for ${{ env.TAG }} on $(date +'%Y-%m-%d') is ready" >> $GITHUB_ENV
- 
+
     - name: Send email notification
       uses: dawidd6/action-send-mail@v3
       with:
