@@ -60,12 +60,12 @@ jobs:
         tag_name: ${{ env.TAG }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+        
     - name: Send email notification
       uses: dawidd6/action-send-mail@v3
       with:
         server_address: smtp.gmail.com
-        server_port: 465
+        server_port: 587
         username: ${{ secrets.GMAIL_USERNAME }}
         password: ${{ secrets.GMAIL_APP_PASSWORD }}
         subject: Dist.zip is ready
@@ -74,4 +74,4 @@ jobs:
           https://github.com/${{ github.repository }}/releases/download/${{ env.TAG }}/dist.zip
         to: dev@elvinlab.com
         from: ${{ secrets.GMAIL_USERNAME }}
-        secure: false
+        secure: true
