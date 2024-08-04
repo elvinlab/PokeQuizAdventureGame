@@ -60,7 +60,11 @@ jobs:
         tag_name: ${{ env.TAG }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
+
+      - name: Set up email subject #definir el asunto
+      id: email_subject
+      run: echo "EMAIL_SUBJECT=Dist.zip for ${{ env.TAG }} on $(date +'%Y-%m-%d') is ready" >> $GITHUB_ENV
+ 
     - name: Send email notification
       uses: dawidd6/action-send-mail@v3
       with:
@@ -68,7 +72,7 @@ jobs:
         server_port: 465
         username: ${{ secrets.GMAIL_USERNAME }} #correo guardado en variables secrets
         password: ${{ secrets.GMAIL_APP_PASSWORD }} #contraseña legacy de gmail guardada en variables secrets
-        subject: Dist.zip for ${{ env.TAG }} on ${{ date +'%Y-%m-%d' }} is ready
+        subject: ${{ env.EMAIL_SUBJECT }}
         body: |
           The dist.zip file is now available for download at the following link:
           https://github.com/${{ github.repository }}/releases/download/${{ env.TAG }}/dist.zip
