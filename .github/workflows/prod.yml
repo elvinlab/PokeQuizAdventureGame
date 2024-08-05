@@ -1,9 +1,10 @@
 name: Build and Upload Production
 
 on:
-  release:
-    types: [published] # Trigger on new release (new tag created)
-
+  push:
+    branches:
+      - main
+      
 jobs:
   build:
     runs-on: ubuntu-latest
