@@ -76,5 +76,5 @@ jobs:
         body: |
           The dist.zip file is now available for download at the following link:
           https://github.com/${{ github.repository }}/releases/download/${{ env.TAG }}/dist.zip
-        to: dev@elvinlab.com #agregar mas mail si se requiere
+        to: pablomadrigal@getbuo.com, elvingonzalez@getbuo.com #agregar mas mail si se requiere
         from: ${{ secrets.GMAIL_USERNAME }}
