@@ -1,4 +1,4 @@
-name: Build and Upload
+name: Build and Upload Development
 
 on:
   push:
@@ -57,13 +57,13 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: dist.zip
-        tag_name: ${{ steps.current_version.outputs.TAG }}
+        tag_name: ${{ env.TAG }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Set up email subject
       id: email_subject
-      run: echo "EMAIL_SUBJECT=Dist.zip for ${{ steps.current_version.outputs.TAG }} is ready" >> $GITHUB_ENV
+      run: echo "EMAIL_SUBJECT=Dist.zip for ${{ env.TAG }} is ready" >> $GITHUB_ENV
 
     - name: Send email notification
       uses: dawidd6/action-send-mail@v3
