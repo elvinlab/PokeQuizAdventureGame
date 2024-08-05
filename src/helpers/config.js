@@ -1,5 +1,5 @@
 export const Config = {
-  GET_POKEMON: "https://pokeapi.co/api/v2/pokemon",
-  GITHUB_REPOSITORY: "https://github.com/elvinlab/PokeQuizAdventureGame",
-  WEBSITE_LINK: "https://elvinlab.com/",
+  GET_POKEMON: import.meta.env.VITE_GET_POKEMON,
+  GITHUB_REPOSITORY: import.meta.env.VITE_GITHUB_REPOSITORY,
+  WEBSITE_LINK: import.meta.env.VITE_WEBSITE_LINK,
 };
