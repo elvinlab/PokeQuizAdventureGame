@@ -1,115 +1,89 @@
-# PokeQuizAdventureGame
+<div align="center">
 
 ![PokeQuizAdventureGame](./src/assets/banner.webp)
 
-## Description
+# PokeQuiz Adventure Game
 
-**PokeQuizAdventureGame** is a Pokémon-based quiz game. This project utilizes several modern technologies to create an interactive and dynamic user experience.
+**"Who's that Pokémon?" — a quiz game where you guess the Pokémon from its silhouette.**
 
-## Environment Requirements
+[![Live demo](https://img.shields.io/badge/▶_Play_now-poke--quiz--adventure-e11d48?style=for-the-badge)](https://poke-quiz-adventure.netlify.app/)
 
-Before getting started, make sure you have the following installed on your system:
+![Vue 3](https://img.shields.io/badge/Vue_3-42b883?style=flat-square&logo=vuedotjs&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-646cff?style=flat-square&logo=vite&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06b6d4?style=flat-square&logo=tailwindcss&logoColor=white) ![Jest](https://img.shields.io/badge/Tested_with_Jest-c21325?style=flat-square&logo=jest&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088ff?style=flat-square&logo=githubactions&logoColor=white)
 
-- [Node.js](https://nodejs.org/en/) (version 16 or higher)
-- [pnpm](https://pnpm.io/installation) (package manager)
+</div>
 
-## Installation
+## Screenshots
 
-1. **Clone the repository:**
+<table>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/game-light.png" alt="Guess the Pokémon from its silhouette"></td>
+    <td width="50%"><img src="docs/screenshots/answer.png" alt="Answer revealed after choosing"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Guess the Pokémon from its silhouette</sub></td>
+    <td align="center"><sub>The answer is revealed after each pick</sub></td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="docs/screenshots/game-dark.png" alt="Dark theme"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><sub>Dark theme</sub></td>
+  </tr>
+</table>
 
-   ```sh
-   git clone https://github.com/elvinlab/PokeQuizAdventureGame
-   cd pokequizadventuregame
-   ```
+## Features
 
-2. **Install the dependencies:**
-   ```sh
-   pnpm install
-   ```
+- 🎯 **Silhouette quiz** — a random Pokémon from the [PokéAPI](https://pokeapi.co/) with four possible answers.
+- 🌗 **Light and dark themes** with a one-click switcher.
+- 🌎 **English and Spanish** via `vue-i18n`.
+- ✨ **Animated UI** built with Tailwind CSS, Flowbite and animate.css.
+- 🧪 **Component tests** for the core game pieces with Jest and Vue Test Utils.
+- 🚀 **CI/CD** — GitHub Actions build every push and publish versioned releases for development and production.
 
-## Available Scripts
+## Tech stack
 
-In this project, you can run the following scripts:
+| Area | Tools |
+|------|-------|
+| Framework | Vue 3, Vue Router, vue-i18n |
+| Build | Vite, PostCSS |
+| Styling | Tailwind CSS, Flowbite, animate.css |
+| Data | Axios + PokéAPI |
+| Testing | Jest, Vue Test Utils, jsdom |
+| Delivery | GitHub Actions, Netlify |
 
-- **Development:**
+## Project structure
 
-  ```sh
-  pnpm dev
-  ```
-
-  This command starts the development server using Vite.
-
-- **Build:**
-
-  ```sh
-  pnpm build
-  ```
-
-## Running Tests
-
-To run tests for this project, use the following command:
-
-```sh
-pnpm Test
+```
+src/
+├── components/
+│   ├── control/   ← theme and language switchers
+│   ├── game/      ← quiz logic: main screen, artwork, choices
+│   ├── misc/      ← instructions, loading state
+│   └── ui/        ← layout, navbar, welcome message
+├── helpers/       ← config and Pokémon service
+├── i18n/          ← English and Spanish dictionaries
+└── routes/
+tests/             ← component specs
 ```
 
-This command builds the project for production.
+## Getting started
 
-- **Preview:**
-  ```sh
-  pnpm preview
-  ```
-  This command allows you to preview the built project.
+Requirements: [Node.js](https://nodejs.org/) 16+ and [pnpm](https://pnpm.io/installation).
 
-## Dependencies
+```sh
+git clone https://github.com/elvinlab/PokeQuizAdventureGame.git
+cd PokeQuizAdventureGame
+pnpm install
+pnpm dev        # http://localhost:5173
+```
 
-### Production
+| Script | Description |
+|--------|-------------|
+| `pnpm dev` | Start the development server |
+| `pnpm test` | Run the component tests |
+| `pnpm build` | Build for production |
+| `pnpm preview` | Preview the production build |
 
-- **[animate.css](https://animate.style/):** A library of ready-to-use CSS animations.
-- **[axios](https://axios-http.com/):** Promise-based HTTP client for the browser and Node.js.
-- **[flowbite](https://flowbite.com/):** UI components built with Tailwind CSS.
-- **[vue](https://vuejs.org/):** Progressive framework for building user interfaces.
-- **[vue-i18n](https://kazupon.github.io/vue-i18n/):** Internationalization plugin for Vue.js.
-- **[vue-router](https://router.vuejs.org/):** Official router for Vue.js.
+## License
 
-### Development
-
-- **[@vitejs/plugin-vue](https://vitejs.dev/):** Plugin to integrate Vue with Vite.
-- **[@vue/test-utils](https://vuejs.github.io/vue-test-utils/):** Utilities for testing Vue components.
-- **[@vue/vue3-jest](https://github.com/vuejs/vue-jest):** Jest integration for Vue 3.
-- **[autoprefixer](https://github.com/postcss/autoprefixer):** Plugin to parse CSS and add vendor prefixes using values from Can I Use.
-- **[babel-jest](https://babeljs.io/docs/en/babel-jest):** Jest transformer for JavaScript ES6+ syntax.
-- **[jest-environment-jsdom](https://jestjs.io/docs/configuration#testenvironment-string):** Jest environment that simulates a browser environment using jsdom.
-- **[jest](https://jestjs.io/):** JavaScript testing framework.
-- **[postcss](https://postcss.org/):** Tool to transform CSS with JavaScript plugins.
-- **[tailwindcss](https://tailwindcss.com/):** Utility-first CSS framework for quickly building custom designs.
-- **[vite](https://vitejs.dev/):** Fast build tool focused on the frontend.
-
-## Running the Project Locally
-
-1. **Start the development server:**
-
-   ```sh
-   pnpm dev
-   ```
-
-2. **Open your browser and navigate to:**
-   ```
-   http://localhost:5173/
-   ```
-
-## Contributions
-
-If you would like to contribute to this project, please follow these steps:
-
-1. Fork the repository.
-2. Create a branch (`git checkout -b feature/new-feature`).
-3. Make your changes and commit them (`git commit -am 'Add new feature'`).
-4. Push your changes (`git push origin feature/new-feature`).
-5. Open a Pull Request.
-
----
-
-Thank you for your interest in PokeQuizAdventureGame! If you have any questions or suggestions, feel free to open an issue or send an email.
-
-Have fun playing and learning about Pokémon!
+Made for learning and fun by [Elvin González](https://elvinlab.dev). Pokémon and Pokémon character names are trademarks of Nintendo.
